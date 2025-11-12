@@ -88,6 +88,11 @@ self.addEventListener('push', (event) => {
     console.log('Push event diterima:', event);
 
     let data = {};
+    try {
+        data = event.data ? event.data.json() : {};
+    } catch (e) {
+        data = { title: 'Notifikasi Baru', options: { body: event.data.text() } };
+    }
 
     const title = data.title || 'Notifikasi';
     const options = data.options || {
