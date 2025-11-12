@@ -21,7 +21,7 @@ export default class NewStoryPage {
 
           <div class="form-group">
             <button type="button" id="cameraButton">Gunakan Kamera</button>
-            <button type="button" id="captureButton" style="display:none;">📸 Ambil Foto</button>
+            <button type="button" id="captureButton" style="display:none;">Ambil Foto</button>
             <video id="cameraPreview" autoplay playsinline style="display:none; width:100%; border-radius:6px;"></video>
             <canvas id="photoCanvas" style="display:none;"></canvas>
             <img id="imagePreview" alt="Preview Gambar" style="display:none; width:100%; margin-top:10px; border-radius:6px; object-fit:cover;">

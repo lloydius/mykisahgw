@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# mykisahgw
-Aplikasi untuk berbagi cerita dengan fitur lokasi
-=======
 # App Starter Project with Webpack
 
 Proyek ini adalah setup dasar untuk aplikasi web yang menggunakan webpack untuk proses bundling, Babel untuk transpile JavaScript, serta mendukung proses build dan serving aplikasi.
@@ -70,4 +66,3 @@ starter-project/
 ├── webpack.dev.js          # Webpack development configuration
 └── webpack.prod.js         # Webpack production configuration
 ```
->>>>>>> 804fec2 (finish project)

@@ -91,11 +91,11 @@ class App {
     const notifSubBtn = document.getElementById('nav-notif-subscribe');
     const notifUnsubBtn = document.getElementById('nav-notif-unsubscribe');
 
+    // Sembunyikan dulu
     notifSubBtn.style.display = 'none';
-    notifSubBtn.style.opacity = '0';
     notifUnsubBtn.style.display = 'none';
-    notifUnsubBtn.style.opacity = '0';
 
+    // Kalau belum login
     if (!token) {
       loginLink.style.display = 'inline-block';
       addStoryLink.style.display = 'none';
@@ -103,6 +103,7 @@ class App {
       return;
     }
 
+    // Kalau sudah login
     loginLink.style.display = 'none';
     addStoryLink.style.display = 'inline-block';
     logoutLink.style.display = 'inline-block';
@@ -111,16 +112,16 @@ class App {
       const isSubscribed = await isCurrentPushSubscriptionAvailable();
 
       if (isSubscribed) {
-        notifSubBtn.style.display = 'none';
+        // Sudah berlangganan → tampilkan tombol Unsubscribe
         notifUnsubBtn.style.display = 'inline-block';
         notifUnsubBtn.style.opacity = '1';
+      } else {
+        // Belum berlangganan → tampilkan tombol Subscribe
         notifSubBtn.style.display = 'inline-block';
         notifSubBtn.style.opacity = '1';
-        notifUnsubBtn.style.display = 'none';
       }
     } catch (error) {
       console.error('Gagal cek subscription:', error);
-
       notifSubBtn.style.display = 'none';
       notifUnsubBtn.style.display = 'none';
     }
@@ -158,13 +159,6 @@ class App {
     };
   }
 
-  logoutUser() {
-    const confirmLogout = confirm('Yakin ingin keluar dari akun?');
-    if (confirmLogout) {
-      localStorage.removeItem('token');
-      window.location.hash = '#/login';
-    }
-  }
 }
 
 export default App;

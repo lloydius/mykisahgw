@@ -1,5 +1,2 @@
-<<<<<<< HEAD
-APP_URL=https://lloydius.github.io/mykisahgw/
-=======
-APP_URL=https://lloydius.github.io/mykisahgw/
->>>>>>> 2971494b08747b01f806d1ec57db531aa77f6217
+APP_URL=<url_aplikasi>
+MAP_SERVICE_API_KEY=<api_key>

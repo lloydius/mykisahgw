@@ -5,9 +5,6 @@ import '../styles/login.css';
 import '../styles/register.css';
 import '../styles/styles.css';
 import { registerServiceWorker } from './utils';
-import { subscribe, unsubscribe, showTestNotification } from './utils/notification-helper';
-
-
 
 import App from './pages/app';
 
@@ -19,8 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
   await app.renderPage();
   await registerServiceWorker();
-
-  console.log('Berhasil mendaftarkan service worker.');
 
   window.addEventListener('hashchange', async () => {
     await app.renderPage();
