@@ -3,8 +3,6 @@ import { registerRoute } from 'workbox-routing';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
 
-let BASE_URL = '';
-
 const manifest = self.__WB_MANIFEST;
 precacheAndRoute(manifest);
 
@@ -65,19 +63,19 @@ registerRoute(
 );
 
 
-// Service Worker Install
+// Event ketika Service Worker diinstall
 self.addEventListener('install', (event) => {
     console.log('Service Worker: Installed');
     self.skipWaiting();
 });
 
-// Service Worker Active
+// Event ketika Service Worker aktif
 self.addEventListener('activate', (event) => {
     console.log('Service Worker: Activated');
     event.waitUntil(self.clients.claim());
 });
 
-// Push from Server
+// Event menerima push dari server
 self.addEventListener('push', (event) => {
     console.log('Push event diterima:', event);
 
@@ -102,7 +100,7 @@ self.addEventListener('push', (event) => {
 });
 
 
-// Notification Click
+// Event ketika notifikasi diklik
 self.addEventListener('notificationclick', (event) => {
     event.notification.close();
 
