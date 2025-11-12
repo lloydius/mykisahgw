@@ -43,6 +43,21 @@ class App {
     });
   }
 
+  logoutUser() {
+    localStorage.removeItem('token');
+
+    // Optional: bersihkan data lain kalau ada
+    // localStorage.removeItem('user');
+
+    alert('Anda telah logout.');
+
+    // Arahkan user ke halaman login
+    window.location.hash = '#/login';
+
+    // Refresh navbar agar tombol login/logout berubah
+    this.updateNavbar();
+  }
+
   async renderPage() {
     const url = getActiveRoute();
     const routeKey = Object.keys(routes).find((path) => {
