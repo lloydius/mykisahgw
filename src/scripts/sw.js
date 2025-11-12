@@ -6,6 +6,14 @@ import { NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategi
 const manifest = self.__WB_MANIFEST;
 precacheAndRoute(manifest);
 
+let BASE_URL = '';
+
+self.addEventListener('message', (event) => {
+    if (event.data && event.data.baseUrl) {
+        BASE_URL = event.data.baseUrl;
+    }
+});
+
 registerRoute(
     ({ url }) => {
         return url.origin === 'https://fonts.googleapis.com' || url.origin === 'https://fonts.gstatic.com';
